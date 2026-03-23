@@ -1,37 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
-const projects = [
-  {
-    slug: 'project-one',
-    title: 'Client Name',
-    category: 'EdTech',
-    service: 'Webflow Development',
-    desc: 'A full marketing site with CMS blog, Lighthouse score 98, 40% increase in organic traffic in 3 months.',
-  },
-  {
-    slug: 'project-two',
-    title: 'Client Name',
-    category: 'SaaS',
-    service: 'Integrations & Automation',
-    desc: 'HubSpot CRM integration, automated lead routing, Zapier workflows saving 15 hours/week.',
-  },
-  {
-    slug: 'project-three',
-    title: 'Client Name',
-    category: 'Immigration / RelocationTech',
-    service: 'Webflow Development',
-    desc: 'Multi-language Webflow site with custom CMS, deployed in 3 weeks. Page speed: 1.2s.',
-  },
-];
+const allProjects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order
+);
 ---
 
 <Layout
-  title="Work — Selected Webflow Projects"
-  description="Real results, real metrics. Webflow projects we've built for startups and tech companies."
+  title="Work — Selected Projects | /shvchk"
+  description="Real results, real metrics. Webflow projects built for startups and tech companies."
 >
 
-  <div class="pt-32 pb-24 px-6">
+  <div class="pt-32 pb-20 px-6">
     <div class="max-w-6xl mx-auto">
       <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-4">Work</p>
       <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 max-w-2xl leading-tight">
@@ -44,24 +25,51 @@ const projects = [
   </div>
 
   <section class="py-10 px-6 border-t border-white/10">
-    <div class="max-w-6xl mx-auto space-y-6">
-      {projects.map(project => (
+    <div class="max-w-6xl mx-auto space-y-4">
+      {allProjects.map(project => (
         <a
-          href={`/projects/${project.slug}`}
-          class="group flex flex-col md:flex-row border border-white/10 rounded-2xl overflow-hidden hover:border-white/30"
+          href={`/projects/${project.id}`}
+          class="group flex flex-col md:flex-row border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 hover:bg-white/5"
         >
-          <div class="bg-white/5 md:w-80 aspect-video md:aspect-auto flex items-center justify-center flex-shrink-0">
-            <p class="text-white/20 text-sm">Screenshot</p>
+          <!-- Color accent strip -->
+          <div
+            class="md:w-72 min-h-[160px] md:min-h-0 flex flex-col justify-between p-8 flex-shrink-0"
+            style={`background-color: ${project.data.color}15; border-right: 1px solid ${project.data.color}30;`}
+          >
+            <div
+              class="w-8 h-8 rounded-full"
+              style={`background-color: ${project.data.color};`}
+            ></div>
+            <div class="mt-auto">
+              <p class="text-xs text-white/30 mb-1">{project.data.year}</p>
+              <p class="text-xs text-white/40">{project.data.industry}</p>
+            </div>
           </div>
+
+          <!-- Content -->
           <div class="p-8 flex flex-col justify-between flex-1">
             <div>
-              <div class="flex items-center gap-3 mb-3">
-                <span class="text-xs border border-white/20 rounded-full px-3 py-1 text-white/50">{project.category}</span>
-                <span class="text-xs border border-white/20 rounded-full px-3 py-1 text-white/50">{project.service}</span>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.data.services.map(s => (
+                  <span class="text-xs border border-white/20 rounded-full px-3 py-1 text-white/50">{s}</span>
+                ))}
               </div>
-              <h2 class="text-2xl font-bold text-white mb-3">{project.title}</h2>
-              <p class="text-white/50 text-sm leading-relaxed">{project.desc}</p>
+              <h2 class="text-2xl font-bold text-white mb-2">{project.data.title}</h2>
+              <p class="text-sm text-white/50 leading-relaxed">{project.data.tagline}</p>
             </div>
+
+            <!-- Metrics preview -->
+            {project.data.metrics && (
+              <div class="mt-6 flex flex-wrap gap-6">
+                {project.data.metrics.slice(0, 3).map(m => (
+                  <div>
+                    <p class="text-lg font-bold text-white">{m.value}</p>
+                    <p class="text-xs text-white/40">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
             <p class="mt-6 text-sm text-white/30 group-hover:text-white flex items-center gap-1">
               View case study →
             </p>

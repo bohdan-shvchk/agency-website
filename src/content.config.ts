@@ -25,4 +25,44 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+const projects = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
+  schema: z.object({
+    title: z.string(),
+    tagline: z.string(),
+    description: z.string(),
+    industry: z.string(),
+    services: z.array(z.string()),
+    year: z.string(),
+    url: z.string().optional(),
+    color: z.string().default('#000000'),
+    // Metrics shown as highlight numbers
+    metrics: z.array(z.object({
+      value: z.string(),
+      label: z.string(),
+    })).optional(),
+    // Challenge → What we did → Result
+    challenge: z.string(),
+    solution: z.string(),
+    result: z.string(),
+    // Detailed process steps
+    process: z.array(z.object({
+      step: z.string(),
+      title: z.string(),
+      body: z.string(),
+    })).optional(),
+    // Tech/tools used
+    stack: z.array(z.string()).default([]),
+    // Testimonial
+    testimonial: z.object({
+      quote: z.string(),
+      author: z.string(),
+      role: z.string(),
+    }).optional(),
+    metaTitle: z.string().optional(),
+    metaDescription: z.string().optional(),
+    order: z.number().default(99),
+  }),
+});
+
+export const collections = { blog, projects };

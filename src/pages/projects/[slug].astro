@@ -1,0 +1,245 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(project => ({ params: { slug: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+const {
+  title, tagline, description, industry, services, year, url, color,
+  metrics, challenge, solution, result, process, stack,
+  testimonial, metaTitle, metaDescription,
+} = project.data;
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: title,
+  description,
+  url: pageUrl,
+  creator: { '@type': 'Organization', name: '/shvchk' },
+};
+---
+
+<Layout
+  title={metaTitle ?? `${title} — Case Study | /shvchk`}
+  description={metaDescription ?? description}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <meta property="og:type" content="article" />
+  </Fragment>
+
+  <!-- Hero -->
+  <div
+    class="pt-32 pb-20 px-6 border-b border-white/10"
+    style={`background: linear-gradient(135deg, ${color}10 0%, transparent 60%);`}
+  >
+    <div class="max-w-6xl mx-auto">
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center gap-2 text-xs text-white/30 mb-10">
+        <a href="/" class="hover:text-white">Home</a>
+        <span>/</span>
+        <a href="/projects" class="hover:text-white">Work</a>
+        <span>/</span>
+        <span class="text-white/60">{title}</span>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="text-xs border border-white/20 rounded-full px-3 py-1 text-white/50">{industry}</span>
+            <span class="text-xs border border-white/20 rounded-full px-3 py-1 text-white/50">{year}</span>
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">{title}</h1>
+          <p class="text-xl text-white/50 leading-relaxed mb-6">{tagline}</p>
+          <div class="flex flex-wrap gap-2">
+            {services.map(s => (
+              <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1 text-white/60">{s}</span>
+            ))}
+          </div>
+          {url && (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener"
+              class="mt-6 inline-flex items-center gap-2 text-sm text-white/40 hover:text-white"
+            >
+              Visit live site ↗
+            </a>
+          )}
+        </div>
+
+        <!-- Metrics -->
+        {metrics && metrics.length > 0 && (
+          <div class="grid grid-cols-2 gap-4">
+            {metrics.map(m => (
+              <div class="border border-white/10 rounded-2xl p-6 bg-white/5">
+                <p class="text-3xl font-bold text-white mb-1" style={`color: ${color};`}>{m.value}</p>
+                <p class="text-sm text-white/50">{m.label}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-16">
+
+      <!-- Main content -->
+      <div class="space-y-16">
+
+        <!-- Challenge → Solution → Result -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { label: 'Challenge', body: challenge, num: '01' },
+            { label: 'Solution', body: solution, num: '02' },
+            { label: 'Result', body: result, num: '03' },
+          ].map(item => (
+            <div class="border border-white/10 rounded-2xl p-6">
+              <p class="text-xs font-mono text-white/20 mb-3">{item.num}</p>
+              <p class="text-xs font-semibold text-white/40 uppercase tracking-widest mb-3">{item.label}</p>
+              <p class="text-sm text-white/60 leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Process -->
+        {process && process.length > 0 && (
+          <div>
+            <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-8">Process</p>
+            <div class="space-y-0">
+              {process.map((step, i) => (
+                <div class={`flex gap-6 pb-10 relative ${i < process.length - 1 ? 'border-l border-white/10 ml-4' : 'ml-4'}`}>
+                  <div
+                    class="w-8 h-8 rounded-full border-2 border-white/20 bg-[var(--bg)] flex items-center justify-center text-xs font-mono text-white/40 flex-shrink-0 -ml-4"
+                    style={`border-color: ${color}60; color: ${color};`}
+                  >
+                    {i + 1}
+                  </div>
+                  <div class="pt-1 pl-2">
+                    <h3 class="font-semibold text-white mb-2">{step.title}</h3>
+                    <p class="text-sm text-white/55 leading-relaxed">{step.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Long-form content from markdown body -->
+        {Content && (
+          <div class="prose-article border-t border-white/10 pt-12">
+            <Content />
+          </div>
+        )}
+
+        <!-- Testimonial -->
+        {testimonial && (
+          <div
+            class="rounded-2xl p-8 border"
+            style={`background: ${color}10; border-color: ${color}30;`}
+          >
+            <p class="text-xl text-white/80 leading-relaxed mb-6 italic">
+              "{testimonial.quote}"
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white"
+                style={`background-color: ${color};`}
+              >
+                {testimonial.author[0]}
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-white">{testimonial.author}</p>
+                <p class="text-xs text-white/40">{testimonial.role}</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="hidden lg:block space-y-6">
+
+        <!-- Project info -->
+        <div class="border border-white/10 rounded-2xl p-5 sticky top-28">
+          <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-5">Project details</p>
+          <div class="space-y-4">
+            <div>
+              <p class="text-xs text-white/30 mb-1">Client</p>
+              <p class="text-sm font-medium text-white">{title}</p>
+            </div>
+            <div>
+              <p class="text-xs text-white/30 mb-1">Industry</p>
+              <p class="text-sm text-white/70">{industry}</p>
+            </div>
+            <div>
+              <p class="text-xs text-white/30 mb-1">Year</p>
+              <p class="text-sm text-white/70">{year}</p>
+            </div>
+            <div>
+              <p class="text-xs text-white/30 mb-2">Services</p>
+              <div class="space-y-1">
+                {services.map(s => (
+                  <p class="text-sm text-white/70">{s}</p>
+                ))}
+              </div>
+            </div>
+            {stack.length > 0 && (
+              <div>
+                <p class="text-xs text-white/30 mb-2">Stack</p>
+                <div class="flex flex-wrap gap-1.5">
+                  {stack.map(tool => (
+                    <span class="text-xs bg-white/5 border border-white/10 rounded-lg px-2 py-1 text-white/50">{tool}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {url && (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener"
+                class="block text-center text-xs border border-white/20 rounded-xl py-2.5 text-white/50 hover:text-white hover:border-white/40 mt-2"
+              >
+                Visit live site ↗
+              </a>
+            )}
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="border-t border-white/10 py-20 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h2 class="text-2xl font-bold text-white mb-2">Like what you see?</h2>
+        <p class="text-white/50 text-sm">We're taking on new projects for Q2 2026.</p>
+      </div>
+      <div class="flex gap-3 flex-wrap">
+        <a href="/projects" class="border border-white/20 text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-white/5">
+          ← All work
+        </a>
+        <a href="/contact" class="bg-white text-black text-sm font-semibold px-6 py-3 rounded-full hover:bg-white/90">
+          Start a project →
+        </a>
+      </div>
+    </div>
+  </div>
+
+</Layout>
