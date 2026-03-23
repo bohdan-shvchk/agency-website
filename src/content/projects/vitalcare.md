@@ -6,7 +6,7 @@ industry: "Healthcare"
 services: ["Webflow Development", "CMS Architecture", "Integrations & Automation"]
 year: "2024"
 url: "https://vitalcareclinic.com"
-color: "#0d9488"
+color: "#0a0a0a"
 order: 3
 metrics:
   - value: "+110%"

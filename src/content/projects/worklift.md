@@ -6,7 +6,7 @@ industry: "SaaS / Freelance Tools"
 services: ["Webflow Development", "Integrations & Automation", "Support & Maintenance"]
 year: "2025"
 url: "https://worklift.app"
-color: "#2563eb"
+color: "#0a0a0a"
 order: 2
 metrics:
   - value: "2,400+"

@@ -6,7 +6,7 @@ industry: "E-commerce / Fashion"
 services: ["Shopify Development", "Integrations & Automation", "Support & Maintenance"]
 year: "2025"
 url: "https://lunarasleep.com"
-color: "#c4a882"
+color: "#0a0a0a"
 order: 1
 metrics:
   - value: "+84%"
