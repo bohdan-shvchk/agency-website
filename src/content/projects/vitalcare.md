@@ -20,6 +20,15 @@ metrics:
 challenge: "VitalCare is a private clinic with 12 specialists across 6 departments. Their old site was built on WordPress in 2019, scored 34 on Lighthouse, and had no online booking — patients had to call to schedule. On mobile, the site was nearly unusable."
 solution: "Rebuilt in Webflow with a structured CMS for doctors, services, and departments. Integrated Calendly for per-doctor booking slots. Built a symptom-based service finder so patients can quickly navigate to the right specialist. Full GDPR-compliant cookie setup for the EU market."
 result: "Online bookings increased 110% in the first month after launch. Phone call volume dropped 40% — the clinic's front desk now handles complex cases only. Mobile traffic conversion rate improved from 0.8% to 3.1%."
+resultCards:
+  - title: "+110% online bookings"
+    body: "In the first month after launch, online appointment volume more than doubled. Patients no longer needed to call — they could find the right specialist and book a slot in three clicks."
+  - title: "Phone call volume down 40%"
+    body: "The clinic's front desk was freed from routine scheduling. Staff now focus on complex cases and patient care, not answering the same booking questions 40 times a day."
+  - title: "Mobile conversion: 0.8% → 3.1%"
+    body: "The old site was nearly unusable on mobile. The rebuilt experience — fast, thumb-friendly, with embedded booking — turned mobile visitors into patients for the first time."
+  - title: "96 Lighthouse score"
+    body: "From a score of 34 on the legacy WordPress site to 96 on Webflow. Faster load times directly improved both SEO rankings and patient trust on first visit."
 process:
   - step: "01"
     title: "Patient Journey Mapping"

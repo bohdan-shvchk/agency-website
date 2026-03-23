@@ -45,6 +45,10 @@ const projects = defineCollection({
     challenge: z.string(),
     solution: z.string(),
     result: z.string(),
+    resultCards: z.array(z.object({
+      title: z.string(),
+      body: z.string(),
+    })).optional(),
     // Detailed process steps
     process: z.array(z.object({
       step: z.string(),

@@ -12,7 +12,7 @@ const { Content } = await render(project);
 
 const {
   title, tagline, description, industry, services, year, url, color,
-  metrics, challenge, solution, result, process, stack,
+  metrics, challenge, solution, result, resultCards, process, stack,
   testimonial, metaTitle, metaDescription,
 } = project.data;
 
@@ -98,17 +98,16 @@ const jsonLd = {
       <!-- Main content -->
       <div class="space-y-16">
 
-        <!-- Challenge → Solution → Result -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Challenge -->
+        <div class="space-y-10">
           {[
             { label: 'Challenge', body: challenge, num: '01' },
             { label: 'Solution', body: solution, num: '02' },
-            { label: 'Result', body: result, num: '03' },
           ].map(item => (
-            <div class="border border-white/10 rounded-2xl p-6">
-              <p class="text-xs font-mono text-white/20 mb-3">{item.num}</p>
-              <p class="text-xs font-semibold text-white/40 uppercase tracking-widest mb-3">{item.label}</p>
-              <p class="text-sm text-white/60 leading-relaxed">{item.body}</p>
+            <div class="border-l-2 border-white/10 pl-8">
+              <p class="text-xs font-mono text-white/20 mb-2">{item.num}</p>
+              <p class="text-xs font-semibold text-white/40 uppercase tracking-widest mb-4">{item.label}</p>
+              <p class="text-base text-white/70 leading-relaxed max-w-2xl">{item.body}</p>
             </div>
           ))}
         </div>
@@ -130,6 +129,21 @@ const jsonLd = {
                     <h3 class="font-semibold text-white mb-2">{step.title}</h3>
                     <p class="text-sm text-white/55 leading-relaxed">{step.body}</p>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Result cards -->
+        {resultCards && resultCards.length > 0 && (
+          <div>
+            <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-8">Results</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {resultCards.map(card => (
+                <div class="border border-white/10 rounded-2xl p-6 bg-white/5">
+                  <p class="text-base font-semibold text-white mb-3">{card.title}</p>
+                  <p class="text-sm text-white/55 leading-relaxed">{card.body}</p>
                 </div>
               ))}
             </div>

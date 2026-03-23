@@ -20,6 +20,15 @@ metrics:
 challenge: "Lunara had a beautiful product but a generic Shopify theme that made them look like every other D2C brand. High traffic from Instagram ads, low conversion. The checkout flow had 6 steps and a 78% cart abandonment rate."
 solution: "Custom Shopify theme built from scratch with a focus on tactile, editorial design — large textures, muted palette, slow animations. Reduced checkout to 2 steps. Integrated Klaviyo for abandoned cart flows and post-purchase sequences. Added a fabric selector with live product preview."
 result: "Conversion rate increased 84% in the first 60 days. Cart abandonment dropped from 78% to 41%. The Klaviyo abandoned cart flow alone recovered €18k in the first month."
+resultCards:
+  - title: "+84% conversion rate"
+    body: "Within 60 days of launch, the store's conversion rate nearly doubled — driven by a faster checkout, rebuilt size guide, and trust signals placed at the exact points users were dropping off."
+  - title: "Cart abandonment: 78% → 41%"
+    body: "Reducing checkout from 6 steps to 2, combined with free-returns messaging shown just before payment, cut abandonment by more than half."
+  - title: "€18k recovered in month one"
+    body: "The Klaviyo abandoned cart sequence — 3 emails timed around product category — started recovering revenue from day one. No ad spend. No discounts."
+  - title: "Return customer rate doubled"
+    body: "Post-purchase flows and the VIP segment trigger at €300 lifetime value turned first-time buyers into repeat customers within the first quarter."
 process:
   - step: "01"
     title: "Brand & UX Audit"

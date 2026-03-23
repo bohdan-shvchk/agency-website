@@ -20,6 +20,13 @@ metrics:
 challenge: "WorkLift was approaching their public beta with a single-page placeholder site. They needed a full marketing site that could explain a complex product simply, capture beta signups, and convert free users to paid — all before their Product Hunt launch."
 solution: "Built a product-led marketing site in Webflow with an interactive demo section that simulates the proposal optimiser without requiring signup. Integrated a waitlist flow with automatic Slack notification for the team. Built a comparison page targeting 'Upwork proposal tips' keywords."
 result: "2,400 beta signups in the first 2 weeks — 3x their target. 68% of trial users converted to paid within 30 days. The comparison page ranked on page 1 for 'Upwork proposal template' within 6 weeks of launch."
+resultCards:
+  - title: "2,400 beta signups in 2 weeks"
+    body: "Three times their original target — driven largely by the interactive demo, which let visitors experience the product's core value in 30 seconds without signing up first."
+  - title: "68% trial-to-paid conversion"
+    body: "More than two thirds of trial users converted to a paid plan within 30 days. The onboarding email sequence, timed around real product usage milestones, was the primary driver."
+  - title: "Page 1 ranking in 6 weeks"
+    body: "The comparison landing page targeting 'Upwork proposal template' reached page 1 of Google within 6 weeks of launch — generating organic signups without any paid traffic."
 process:
   - step: "01"
     title: "Positioning & Messaging"
