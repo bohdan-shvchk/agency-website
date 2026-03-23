@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Services — Webflow Development, Integrations & Support"
+  description="Three focused services: Webflow development, integrations & automation, and ongoing support. Built for startups and tech companies."
+>
+
+  <div class="pt-32 pb-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-4">Services</p>
+      <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight max-w-2xl">
+        What we do — and how we do it.
+      </h1>
+      <p class="mt-6 text-lg text-white/50 max-w-xl">
+        Three focused services designed around one goal: a website that performs, converts, and scales with your business.
+      </p>
+    </div>
+  </div>
+
+  <!-- Service 1 -->
+  <section id="development" class="py-20 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      <div>
+        <span class="text-xs font-semibold text-white/30 uppercase tracking-widest">01</span>
+        <h2 class="text-3xl font-bold text-white mt-3 mb-4">Webflow Development</h2>
+        <p class="text-white/50 leading-relaxed mb-6">
+          We build custom Webflow websites from scratch — pixel-perfect, fast-loading, and architected to grow with you. No templates, no shortcuts.
+        </p>
+        <ul class="space-y-3 mb-8">
+          {['Landing pages & marketing sites', 'Multi-page websites & portals', 'CMS-powered blogs & content hubs', 'Custom interactions & animations', 'Responsive across all devices', 'Handoff with Webflow Editor training'].map(item => (
+            <li class="flex items-center gap-3 text-sm text-white/60">
+              <span class="w-1 h-1 bg-white/40 rounded-full flex-shrink-0"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <a href="/contact" class="bg-white text-black text-sm font-semibold px-6 py-3 rounded-full hover:bg-white/90 inline-block">
+          Start a project →
+        </a>
+      </div>
+      <div class="border border-white/10 rounded-2xl p-8 bg-white/5">
+        <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-6">What you get</p>
+        <div class="space-y-5">
+          <div class="flex gap-4">
+            <span class="text-green-400 mt-0.5">✓</span>
+            <div>
+              <p class="text-sm font-medium text-white">95+ Lighthouse score guaranteed</p>
+              <p class="text-xs text-white/40 mt-1">Performance, accessibility, SEO, best practices</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-green-400 mt-0.5">✓</span>
+            <div>
+              <p class="text-sm font-medium text-white">Clean, scalable architecture</p>
+              <p class="text-xs text-white/40 mt-1">Easy to maintain, extend, and hand off</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-green-400 mt-0.5">✓</span>
+            <div>
+              <p class="text-sm font-medium text-white">SEO foundation built-in</p>
+              <p class="text-xs text-white/40 mt-1">Meta tags, schema markup, sitemap, robots.txt</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-green-400 mt-0.5">✓</span>
+            <div>
+              <p class="text-sm font-medium text-white">2-week revision period post-launch</p>
+              <p class="text-xs text-white/40 mt-1">We don't disappear after delivery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service 2 -->
+  <section id="integrations" class="py-20 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      <div>
+        <span class="text-xs font-semibold text-white/30 uppercase tracking-widest">02</span>
+        <h2 class="text-3xl font-bold text-white mt-3 mb-4">Integrations & Automation</h2>
+        <p class="text-white/50 leading-relaxed mb-6">
+          Your website shouldn't be an island. We connect Webflow to your entire tech stack and automate the manual work that's slowing your team down.
+        </p>
+        <ul class="space-y-3 mb-8">
+          {['CRM integrations (HubSpot, Pipedrive, Salesforce)', 'Email marketing (Mailchimp, Klaviyo, ConvertKit)', 'Zapier / Make workflow automation', 'AI agent integrations & chatbots', 'Analytics & event tracking setup', 'Custom API connections'].map(item => (
+            <li class="flex items-center gap-3 text-sm text-white/60">
+              <span class="w-1 h-1 bg-white/40 rounded-full flex-shrink-0"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <a href="/contact" class="bg-white text-black text-sm font-semibold px-6 py-3 rounded-full hover:bg-white/90 inline-block">
+          Automate your workflow →
+        </a>
+      </div>
+      <div class="border border-white/10 rounded-2xl p-8 bg-white/5">
+        <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-6">Popular integrations</p>
+        <div class="grid grid-cols-2 gap-3">
+          {['HubSpot', 'Mailchimp', 'Zapier', 'Make', 'Google Analytics', 'Stripe', 'Calendly', 'OpenAI'].map(tool => (
+            <div class="border border-white/10 rounded-xl px-4 py-3 text-sm text-white/60 text-center">
+              {tool}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service 3 -->
+  <section id="support" class="py-20 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      <div>
+        <span class="text-xs font-semibold text-white/30 uppercase tracking-widest">03</span>
+        <h2 class="text-3xl font-bold text-white mt-3 mb-4">Support & Maintenance</h2>
+        <p class="text-white/50 leading-relaxed mb-6">
+          Your website is a living product. We offer ongoing retainer support so your site stays fast, up-to-date, and converting — without you having to manage it.
+        </p>
+        <ul class="space-y-3 mb-8">
+          {['Content updates & new page builds', 'Performance monitoring & optimization', 'Bug fixes & browser compatibility', 'Webflow CMS management', 'Monthly analytics review', 'Priority response within 24 hours'].map(item => (
+            <li class="flex items-center gap-3 text-sm text-white/60">
+              <span class="w-1 h-1 bg-white/40 rounded-full flex-shrink-0"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <a href="/pricing" class="bg-white text-black text-sm font-semibold px-6 py-3 rounded-full hover:bg-white/90 inline-block">
+          See retainer plans →
+        </a>
+      </div>
+      <div class="border border-white/10 rounded-2xl p-8 bg-white/5">
+        <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-6">SLA commitments</p>
+        <div class="space-y-5">
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-white/60">Response time</span>
+              <span class="text-white font-medium">&lt; 24 hours</span>
+            </div>
+            <div class="h-1 bg-white/10 rounded-full"><div class="h-1 bg-white rounded-full w-4/5"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-white/60">Minor fixes</span>
+              <span class="text-white font-medium">&lt; 48 hours</span>
+            </div>
+            <div class="h-1 bg-white/10 rounded-full"><div class="h-1 bg-white rounded-full w-3/4"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-white/60">Uptime monitoring</span>
+              <span class="text-white font-medium">24/7</span>
+            </div>
+            <div class="h-1 bg-white/10 rounded-full"><div class="h-1 bg-white rounded-full w-full"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-white mb-4">Not sure which service you need?</h2>
+      <p class="text-white/50 mb-8">We'll figure it out together in a free 30-min discovery call.</p>
+      <a href="/contact" class="bg-white text-black font-semibold px-8 py-4 rounded-full text-sm hover:bg-white/90 inline-block">
+        Book a free call →
+      </a>
+    </div>
+  </section>
+
+</Layout>

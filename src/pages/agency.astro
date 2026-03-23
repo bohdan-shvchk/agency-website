@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About — Your Agency"
+  description="We are a focused Webflow development agency. Meet the team behind the builds."
+>
+
+  <div class="pt-32 pb-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-4">About</p>
+      <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight max-w-3xl">
+        A small team. A sharp focus.
+      </h1>
+      <p class="mt-6 text-lg text-white/50 max-w-xl">
+        We're a boutique Webflow agency. No account managers, no junior teams, no hand-offs. You work directly with the people building your site.
+      </p>
+    </div>
+  </div>
+
+  <!-- Story -->
+  <section class="py-20 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-6">Why we started</h2>
+        <div class="space-y-4 text-white/50 leading-relaxed">
+          <p>
+            We kept seeing the same pattern: beautiful agency portfolios, generic output. Clients paying for senior talent but getting junior work. Sites that looked good in screenshots but scored 40 on Lighthouse.
+          </p>
+          <p>
+            So we started fresh. A focused agency where every build goes through the same performance, SEO, and architecture checklist. Where case studies include real numbers, not stock photos of "success."
+          </p>
+          <p>
+            We specialise in one platform — Webflow — because depth beats breadth. We know its limits, its strengths, and exactly how to push it.
+          </p>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <div class="border border-white/10 rounded-2xl p-6">
+          <p class="text-4xl font-bold text-white">50+</p>
+          <p class="text-white/50 mt-1 text-sm">Webflow projects shipped</p>
+        </div>
+        <div class="border border-white/10 rounded-2xl p-6">
+          <p class="text-4xl font-bold text-white">100%</p>
+          <p class="text-white/50 mt-1 text-sm">Webflow-only — no distracted generalists</p>
+        </div>
+        <div class="border border-white/10 rounded-2xl p-6">
+          <p class="text-4xl font-bold text-white">5★</p>
+          <p class="text-white/50 mt-1 text-sm">Average rating on Clutch</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="py-20 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-4">Team</p>
+      <h2 class="text-3xl font-bold text-white mb-12">The people you'll actually work with.</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Team member 1 -->
+        <div class="border border-white/10 rounded-2xl p-6">
+          <div class="w-16 h-16 bg-white/10 rounded-full mb-4"></div>
+          <h3 class="font-semibold text-white">Your Name</h3>
+          <p class="text-sm text-white/40 mb-3">Founder & Webflow Developer</p>
+          <p class="text-sm text-white/50">
+            5+ years building on Webflow. Previously worked at [Agency/Company]. Obsessed with performance and clean CMS architecture.
+          </p>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="mt-4 text-xs text-white/30 hover:text-white inline-block">
+            LinkedIn ↗
+          </a>
+        </div>
+
+        <!-- Team member 2 -->
+        <div class="border border-white/10 rounded-2xl p-6">
+          <div class="w-16 h-16 bg-white/10 rounded-full mb-4"></div>
+          <h3 class="font-semibold text-white">Team Member</h3>
+          <p class="text-sm text-white/40 mb-3">Webflow Developer & Automations</p>
+          <p class="text-sm text-white/50">
+            Specialist in Webflow integrations, Zapier/Make workflows, and JavaScript-heavy custom builds.
+          </p>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="mt-4 text-xs text-white/30 hover:text-white inline-block">
+            LinkedIn ↗
+          </a>
+        </div>
+
+        <!-- Team member 3 -->
+        <div class="border border-white/10 rounded-2xl p-6">
+          <div class="w-16 h-16 bg-white/10 rounded-full mb-4"></div>
+          <h3 class="font-semibold text-white">Team Member</h3>
+          <p class="text-sm text-white/40 mb-3">Design & UX</p>
+          <p class="text-sm text-white/50">
+            Converts Figma designs into Webflow with precision. Focused on conversion-driven layouts and interaction design.
+          </p>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="mt-4 text-xs text-white/30 hover:text-white inline-block">
+            LinkedIn ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-4">How we work</p>
+      <h2 class="text-3xl font-bold text-white mb-12">Principles, not buzzwords.</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          { title: 'Transparent pricing', desc: 'Fixed quotes. No hourly billing surprises. Scope changes are discussed upfront.' },
+          { title: 'Real metrics in every case study', desc: 'We share Lighthouse scores, load times, and conversion data. Not stock imagery of "happy clients".' },
+          { title: 'You own everything', desc: 'Your Webflow account, your domain, your content. We never hold your site hostage.' },
+          { title: 'No disappearing act', desc: 'Post-launch support is included. We answer questions. We fix edge cases. We're reachable.' },
+        ].map(v => (
+          <div class="border border-white/10 rounded-2xl p-8">
+            <h3 class="font-semibold text-white mb-2">{v.title}</h3>
+            <p class="text-sm text-white/50">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-white mb-4">Want to work with us?</h2>
+      <p class="text-white/50 mb-8">We take on 3–4 new projects per month. Spots fill fast.</p>
+      <a href="/contact" class="bg-white text-black font-semibold px-8 py-4 rounded-full text-sm hover:bg-white/90 inline-block">
+        Get in touch →
+      </a>
+    </div>
+  </section>
+
+</Layout>

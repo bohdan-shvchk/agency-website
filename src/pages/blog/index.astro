@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = [
+  {
+    slug: 'webflow-vs-wordpress',
+    title: 'Webflow vs WordPress in 2026: A Developer\'s Honest Comparison',
+    date: '2026-03-10',
+    readTime: '7 min read',
+    category: 'Platform',
+    excerpt: 'We\'ve built on both. Here\'s what actually matters when choosing between Webflow and WordPress for your marketing site.',
+  },
+  {
+    slug: 'clean-webflow-architecture',
+    title: 'Clean Webflow Architecture: How to Build Sites That Don\'t Fall Apart',
+    date: '2026-02-28',
+    readTime: '9 min read',
+    category: 'Development',
+    excerpt: 'Most Webflow sites look good on day one and become unmaintainable by month six. Here\'s how to avoid that.',
+  },
+  {
+    slug: 'ai-agents-2026',
+    title: 'AI Agents in 2026: What Web Agencies Need to Know',
+    date: '2026-02-14',
+    readTime: '6 min read',
+    category: 'AI',
+    excerpt: 'AI agents are no longer a future concept — they\'re being integrated into real client workflows right now. Here\'s what we\'ve learned.',
+  },
+];
+---
+
+<Layout
+  title="Blog — Webflow Development & Agency Insights"
+  description="Honest writing on Webflow development, web performance, AI integrations, and running a focused agency."
+>
+
+  <div class="pt-32 pb-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-4">Blog</p>
+      <h1 class="text-5xl font-bold text-white mb-4">Honest writing on Webflow.</h1>
+      <p class="text-lg text-white/50 max-w-lg">
+        Technical guides, platform comparisons, and what we're actually learning building Webflow sites in 2026.
+      </p>
+    </div>
+  </div>
+
+  <section class="py-10 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto space-y-4">
+      {posts.map(post => (
+        <a
+          href={`/blog/${post.slug}`}
+          class="group flex flex-col md:flex-row md:items-center justify-between border border-white/10 rounded-2xl p-8 hover:border-white/30 hover:bg-white/5 gap-4"
+        >
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs border border-white/20 rounded-full px-3 py-1 text-white/50">{post.category}</span>
+              <span class="text-xs text-white/30">{post.date} · {post.readTime}</span>
+            </div>
+            <h2 class="text-xl font-bold text-white mb-2 group-hover:text-white">{post.title}</h2>
+            <p class="text-sm text-white/50">{post.excerpt}</p>
+          </div>
+          <span class="text-white/30 group-hover:text-white text-xl flex-shrink-0">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+</Layout>
