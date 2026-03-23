@@ -1,18 +1,70 @@
 @import "tailwindcss";
 
+/* ── Theme tokens ── */
+:root {
+  --bg: #0a0a0a;
+  --fg: #f0f0f0;
+  --fg-muted: rgba(240,240,240,0.5);
+  --border: rgba(255,255,255,0.1);
+  --surface: rgba(255,255,255,0.05);
+  --btn-bg: #ffffff;
+  --btn-fg: #000000;
+  --header-bg: rgba(10,10,10,0.8);
+}
+
+[data-theme="light"] {
+  --bg: #f8f8f6;
+  --fg: #0a0a0a;
+  --fg-muted: rgba(10,10,10,0.5);
+  --border: rgba(0,0,0,0.1);
+  --surface: rgba(0,0,0,0.03);
+  --btn-bg: #0a0a0a;
+  --btn-fg: #ffffff;
+  --header-bg: rgba(248,248,246,0.85);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background: #0a0a0a;
-  color: #f0f0f0;
+  background: var(--bg);
+  color: var(--fg);
 }
 
-/* Smooth transitions */
-* {
+/* Apply theme tokens to Tailwind utility overrides */
+[data-theme="light"] .text-white        { color: var(--fg) !important; }
+[data-theme="light"] .text-white\/30    { color: rgba(10,10,10,0.3) !important; }
+[data-theme="light"] .text-white\/40    { color: rgba(10,10,10,0.4) !important; }
+[data-theme="light"] .text-white\/50    { color: rgba(10,10,10,0.5) !important; }
+[data-theme="light"] .text-white\/60    { color: rgba(10,10,10,0.6) !important; }
+[data-theme="light"] .text-black        { color: #ffffff !important; }
+
+[data-theme="light"] .bg-\[\#0a0a0a\]\/80 { background-color: var(--header-bg) !important; }
+[data-theme="light"] .bg-white          { background-color: var(--btn-bg) !important; }
+[data-theme="light"] .bg-white\/5       { background-color: var(--surface) !important; }
+[data-theme="light"] .bg-white\/10      { background-color: rgba(0,0,0,0.06) !important; }
+[data-theme="light"] .bg-white\/20      { background-color: rgba(0,0,0,0.1) !important; }
+
+[data-theme="light"] .border-white\/10  { border-color: var(--border) !important; }
+[data-theme="light"] .border-white\/20  { border-color: rgba(0,0,0,0.15) !important; }
+[data-theme="light"] .border-white\/30  { border-color: rgba(0,0,0,0.25) !important; }
+
+[data-theme="light"] .hover\:bg-white\/5:hover  { background-color: rgba(0,0,0,0.04) !important; }
+[data-theme="light"] .hover\:bg-white\/90:hover { background-color: rgba(10,10,10,0.85) !important; }
+[data-theme="light"] .hover\:border-white\/30:hover { border-color: rgba(0,0,0,0.25) !important; }
+[data-theme="light"] .hover\:text-white:hover   { color: var(--fg) !important; }
+
+/* Pricing highlight card stays inverted in light mode */
+[data-theme="light"] .bg-white.text-black {
+  background-color: #0a0a0a !important;
+  color: #ffffff !important;
+}
+
+/* Smooth theme transition */
+*, *::before, *::after {
   transition-property: color, background-color, border-color, opacity, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 200ms;
 }
