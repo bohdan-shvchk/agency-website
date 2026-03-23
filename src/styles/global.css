@@ -1,68 +1,155 @@
 @import "tailwindcss";
 
-/* ── Theme tokens ── */
+/* ─────────────────────────────────────────
+   Theme tokens — light is default
+   ───────────────────────────────────────── */
 :root {
-  --bg: #0a0a0a;
-  --fg: #f0f0f0;
-  --fg-muted: rgba(240,240,240,0.5);
-  --border: rgba(255,255,255,0.1);
-  --surface: rgba(255,255,255,0.05);
-  --btn-bg: #ffffff;
-  --btn-fg: #000000;
-  --header-bg: rgba(10,10,10,0.8);
+  --bg:          #f8f8f6;
+  --fg:          #0a0a0a;
+  --fg-muted:    rgba(10, 10, 10, 0.5);
+  --fg-faint:    rgba(10, 10, 10, 0.3);
+  --border:      rgba(0, 0, 0, 0.1);
+  --border-mid:  rgba(0, 0, 0, 0.18);
+  --surface:     rgba(0, 0, 0, 0.04);
+  --surface-mid: rgba(0, 0, 0, 0.07);
+  --header-bg:   rgba(248, 248, 246, 0.85);
+  --btn-bg:      #0a0a0a;
+  --btn-fg:      #ffffff;
+  --invert-bg:   #0a0a0a;
+  --invert-fg:   #ffffff;
 }
 
-[data-theme="light"] {
-  --bg: #f8f8f6;
-  --fg: #0a0a0a;
-  --fg-muted: rgba(10,10,10,0.5);
-  --border: rgba(0,0,0,0.1);
-  --surface: rgba(0,0,0,0.03);
-  --btn-bg: #0a0a0a;
-  --btn-fg: #ffffff;
-  --header-bg: rgba(248,248,246,0.85);
+[data-theme="dark"] {
+  --bg:          #0a0a0a;
+  --fg:          #f0f0f0;
+  --fg-muted:    rgba(240, 240, 240, 0.5);
+  --fg-faint:    rgba(240, 240, 240, 0.3);
+  --border:      rgba(255, 255, 255, 0.1);
+  --border-mid:  rgba(255, 255, 255, 0.2);
+  --surface:     rgba(255, 255, 255, 0.05);
+  --surface-mid: rgba(255, 255, 255, 0.1);
+  --header-bg:   rgba(10, 10, 10, 0.8);
+  --btn-bg:      #ffffff;
+  --btn-fg:      #000000;
+  --invert-bg:   #ffffff;
+  --invert-fg:   #000000;
 }
 
-html {
-  scroll-behavior: smooth;
+/* ─────────────────────────────────────────
+   Semantic utility classes
+   Use these for any new component so it
+   automatically works in both themes.
+   ───────────────────────────────────────── */
+.t-bg       { background-color: var(--bg); }
+.t-surface  { background-color: var(--surface); }
+.t-border   { border-color: var(--border); }
+.t-text     { color: var(--fg); }
+.t-text-muted { color: var(--fg-muted); }
+.t-text-faint { color: var(--fg-faint); }
+.t-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
 }
+
+/* ─────────────────────────────────────────
+   Base
+   ───────────────────────────────────────── */
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--fg);
 }
 
-/* Apply theme tokens to Tailwind utility overrides */
-[data-theme="light"] .text-white        { color: var(--fg) !important; }
-[data-theme="light"] .text-white\/30    { color: rgba(10,10,10,0.3) !important; }
-[data-theme="light"] .text-white\/40    { color: rgba(10,10,10,0.4) !important; }
-[data-theme="light"] .text-white\/50    { color: rgba(10,10,10,0.5) !important; }
-[data-theme="light"] .text-white\/60    { color: rgba(10,10,10,0.6) !important; }
-[data-theme="light"] .text-black        { color: #ffffff !important; }
+/* ─────────────────────────────────────────
+   Tailwind overrides — light mode (default)
+   These flip Tailwind's dark-first utilities
+   to work on a light background.
+   ───────────────────────────────────────── */
 
-[data-theme="light"] .bg-\[\#0a0a0a\]\/80 { background-color: var(--header-bg) !important; }
-[data-theme="light"] .bg-white          { background-color: var(--btn-bg) !important; }
-[data-theme="light"] .bg-white\/5       { background-color: var(--surface) !important; }
-[data-theme="light"] .bg-white\/10      { background-color: rgba(0,0,0,0.06) !important; }
-[data-theme="light"] .bg-white\/20      { background-color: rgba(0,0,0,0.1) !important; }
+/* Text */
+:root .text-white      { color: var(--fg) !important; }
+:root .text-white\/80  { color: rgba(10,10,10,0.8) !important; }
+:root .text-white\/70  { color: rgba(10,10,10,0.7) !important; }
+:root .text-white\/60  { color: rgba(10,10,10,0.6) !important; }
+:root .text-white\/50  { color: rgba(10,10,10,0.5) !important; }
+:root .text-white\/40  { color: rgba(10,10,10,0.4) !important; }
+:root .text-white\/30  { color: rgba(10,10,10,0.3) !important; }
+:root .text-white\/20  { color: rgba(10,10,10,0.2) !important; }
+:root .text-black      { color: var(--btn-fg) !important; }
 
-[data-theme="light"] .border-white\/10  { border-color: var(--border) !important; }
-[data-theme="light"] .border-white\/20  { border-color: rgba(0,0,0,0.15) !important; }
-[data-theme="light"] .border-white\/30  { border-color: rgba(0,0,0,0.25) !important; }
+/* Backgrounds */
+:root .bg-\[\#0a0a0a\]\/80  { background-color: var(--header-bg) !important; }
+:root .bg-white             { background-color: var(--btn-bg) !important; }
+:root .bg-white\/5          { background-color: var(--surface) !important; }
+:root .bg-white\/10         { background-color: var(--surface-mid) !important; }
+:root .bg-white\/20         { background-color: rgba(0,0,0,0.12) !important; }
 
-[data-theme="light"] .hover\:bg-white\/5:hover  { background-color: rgba(0,0,0,0.04) !important; }
-[data-theme="light"] .hover\:bg-white\/90:hover { background-color: rgba(10,10,10,0.85) !important; }
-[data-theme="light"] .hover\:border-white\/30:hover { border-color: rgba(0,0,0,0.25) !important; }
-[data-theme="light"] .hover\:text-white:hover   { color: var(--fg) !important; }
+/* Borders */
+:root .border-white\/10  { border-color: var(--border) !important; }
+:root .border-white\/20  { border-color: var(--border-mid) !important; }
+:root .border-white\/30  { border-color: rgba(0,0,0,0.25) !important; }
+:root .border-white      { border-color: var(--btn-bg) !important; }
 
-/* Pricing highlight card stays inverted in light mode */
-[data-theme="light"] .bg-white.text-black {
-  background-color: #0a0a0a !important;
-  color: #ffffff !important;
+/* Hover states */
+:root .hover\:text-white:hover         { color: var(--fg) !important; }
+:root .hover\:bg-white\/5:hover        { background-color: rgba(0,0,0,0.04) !important; }
+:root .hover\:bg-white\/90:hover       { background-color: rgba(10,10,10,0.85) !important; }
+:root .hover\:border-white\/30:hover   { border-color: rgba(0,0,0,0.25) !important; }
+:root .hover\:border-white\/40:hover   { border-color: rgba(0,0,0,0.3) !important; }
+:root .group:hover .group-hover\:text-white { color: var(--fg) !important; }
+
+/* ─────────────────────────────────────────
+   Dark mode: cancel the light overrides
+   (restore Tailwind's natural white/black)
+   ───────────────────────────────────────── */
+[data-theme="dark"] .text-white      { color: #f0f0f0 !important; }
+[data-theme="dark"] .text-white\/80  { color: rgba(240,240,240,0.8) !important; }
+[data-theme="dark"] .text-white\/70  { color: rgba(240,240,240,0.7) !important; }
+[data-theme="dark"] .text-white\/60  { color: rgba(240,240,240,0.6) !important; }
+[data-theme="dark"] .text-white\/50  { color: rgba(240,240,240,0.5) !important; }
+[data-theme="dark"] .text-white\/40  { color: rgba(240,240,240,0.4) !important; }
+[data-theme="dark"] .text-white\/30  { color: rgba(240,240,240,0.3) !important; }
+[data-theme="dark"] .text-white\/20  { color: rgba(240,240,240,0.2) !important; }
+[data-theme="dark"] .text-black      { color: #000000 !important; }
+
+[data-theme="dark"] .bg-\[\#0a0a0a\]\/80  { background-color: rgba(10,10,10,0.8) !important; }
+[data-theme="dark"] .bg-white             { background-color: #ffffff !important; }
+[data-theme="dark"] .bg-white\/5          { background-color: rgba(255,255,255,0.05) !important; }
+[data-theme="dark"] .bg-white\/10         { background-color: rgba(255,255,255,0.1) !important; }
+[data-theme="dark"] .bg-white\/20         { background-color: rgba(255,255,255,0.2) !important; }
+
+[data-theme="dark"] .border-white\/10  { border-color: rgba(255,255,255,0.1) !important; }
+[data-theme="dark"] .border-white\/20  { border-color: rgba(255,255,255,0.2) !important; }
+[data-theme="dark"] .border-white\/30  { border-color: rgba(255,255,255,0.3) !important; }
+[data-theme="dark"] .border-white      { border-color: #ffffff !important; }
+
+[data-theme="dark"] .hover\:text-white:hover         { color: #ffffff !important; }
+[data-theme="dark"] .hover\:bg-white\/5:hover        { background-color: rgba(255,255,255,0.05) !important; }
+[data-theme="dark"] .hover\:bg-white\/90:hover       { background-color: rgba(255,255,255,0.9) !important; }
+[data-theme="dark"] .hover\:border-white\/30:hover   { border-color: rgba(255,255,255,0.3) !important; }
+[data-theme="dark"] .hover\:border-white\/40:hover   { border-color: rgba(255,255,255,0.4) !important; }
+
+/* ─────────────────────────────────────────
+   Inverted card (e.g. pricing highlight)
+   Always: dark bg + light text
+   ───────────────────────────────────────── */
+.card-inverted {
+  background-color: var(--invert-bg) !important;
+  color: var(--invert-fg) !important;
+}
+.card-inverted .card-inverted-muted  { color: rgba(255,255,255,0.45) !important; }
+.card-inverted .card-inverted-mid    { color: rgba(255,255,255,0.65) !important; }
+.card-inverted .card-inverted-btn {
+  background-color: var(--invert-fg) !important;
+  color: var(--invert-bg) !important;
 }
 
-/* Smooth theme transition */
+/* ─────────────────────────────────────────
+   Transitions
+   ───────────────────────────────────────── */
 *, *::before, *::after {
   transition-property: color, background-color, border-color, opacity, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
