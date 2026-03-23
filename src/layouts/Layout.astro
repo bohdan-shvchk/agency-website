@@ -64,6 +64,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         "serviceType": ["Webflow Development", "Web Automation", "Website Maintenance"]
       }
     </script>
+    <slot name="head" />
   </head>
   <body class="min-h-screen">
     <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-md">
