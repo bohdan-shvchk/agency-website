@@ -1,7 +1,7 @@
 ---
 title: "The-Sleeper"
-tagline: "Party pajamas, elevated to sell."
-description: "Custom Shopify development, checkout optimisation, and cart redesign for a luxury fashion brand selling in 190+ countries."
+tagline: "Mid-luxury fashion, built to perform."
+description: "Custom Shopify development, cart redesign, and upsell infrastructure for a mid-luxury celebration wear brand selling in 190+ countries."
 industry: "E-commerce / Fashion"
 services: ["Shopify Development", "CRO & Checkout", "Support & Maintenance"]
 year: "2025"
@@ -17,46 +17,46 @@ metrics:
     label: "Page load time"
   - value: "190+"
     label: "Countries served"
-challenge: "Sleeper's CEO had a precise, specific vision for where the brand's digital experience needed to go — editorial, elevated, and unmistakably theirs. The existing Shopify theme couldn't get there. It was holding back both the visual direction and the commercial performance: checkout was losing customers at the final step, the cart lacked any upsell logic, and the site's load speed was working against the brand's premium positioning."
-solution: "We extended and partially rewrote the Shopify theme to bring the CEO's design vision to life without starting from scratch. The cart was fully redesigned and rebuilt as a custom component with upsell logic built in — suggesting complementary pieces before checkout. We reworked the checkout flow with trust signals, streamlined the step count, and added a custom one-click upsell offer post-purchase. Performance optimisation brought load times in line with industry benchmarks for luxury e-commerce."
-result: "Checkout conversion improved within the first month of the new flow going live. Average order value increased as the in-cart upsell started surfacing relevant products at the right moment. The site now matches the brand's visual ambition without compromising on speed or conversion."
+challenge: "The-Sleeper's CEO had a precise, specific vision for where the brand's digital experience needed to go — editorial, elevated, and unmistakably theirs. The existing Shopify theme couldn't fully support it. The visual direction needed room to breathe, the cart had no upsell logic to capitalise on high purchase intent, and the site's load performance wasn't keeping pace with a store of this scale."
+solution: "We extended and partially rewrote the Shopify theme to bring the CEO's design vision to life without starting from scratch. The cart was fully redesigned and rebuilt as a custom component with upsell logic built in — surfacing complementary pieces at the moment of highest intent. We reworked the checkout flow with trust signals and added a custom post-purchase upsell step. Performance optimisation brought load times in line with benchmarks for mid-luxury e-commerce at global scale."
+result: "Average order value grew as the in-cart upsell began surfacing the right products to the right customers. Checkout conversion improved with the cleaner, faster flow. The store now reflects the brand's visual ambition — and the commercial infrastructure to match."
 resultCards:
-  - title: "+28% checkout conversion"
-    body: "Removing friction from the checkout flow — fewer steps, clearer trust signals, and a cleaner mobile experience — meaningfully improved the rate of customers completing their purchase."
   - title: "+22% average order value"
     body: "The redesigned cart with contextual upsell suggestions and a post-purchase one-click offer increased how much each customer spent per order, without any increase in ad spend."
-  - title: "Faster without compromise"
-    body: "Performance optimisation brought load times to 2.3s — competitive for a visually rich luxury fashion store with high-resolution photography and multi-currency support across 190+ markets."
-  - title: "Design vision, finally realised"
-    body: "The CEO had a clear picture of what the store should feel like. We built it. The new experience is editorial, on-brand, and commercially sharper than what came before."
+  - title: "+28% checkout conversion"
+    body: "A cleaner, faster checkout flow with trust signals placed at the right moments improved the rate of customers completing their purchase."
+  - title: "Faster at global scale"
+    body: "Performance optimisation brought load times to 2.3s — competitive for a visually rich mid-luxury store with high-resolution photography, multi-currency, and 190+ markets."
+  - title: "Design vision, fully realised"
+    body: "The-Sleeper's CEO had a clear picture of what the store should feel like. We built it. The new experience is editorial, on-brand, and commercially sharper than what came before."
 process:
   - step: "01"
     title: "Discovery & Audit"
-    body: "Reviewed the existing theme codebase, Hotjar session recordings, and checkout funnel data. Identified three clear drop-off points in the purchase flow and mapped the CEO's design direction against what the theme could and couldn't support."
+    body: "Reviewed the existing theme codebase, session recordings, and funnel data. Mapped the CEO's design direction against what the theme could and couldn't support, and identified where upsell opportunities were being left on the table."
   - step: "02"
     title: "Theme Extension & Partial Redesign"
-    body: "Rather than rebuilding from scratch, we extended the existing Liquid theme — adding custom sections, rewriting component logic, and implementing the new visual direction where it mattered most: product pages, collection layouts, and mobile navigation."
+    body: "Extended the existing Liquid theme rather than rebuilding from scratch — adding custom sections, rewriting component logic, and implementing the new visual direction where it mattered most: product pages, collection layouts, and mobile navigation."
   - step: "03"
     title: "Cart & Checkout Rebuild"
-    body: "The cart was rebuilt as a fully custom Liquid + JS component with upsell logic tied to product tags and collections. Checkout was restructured with trust signals placed at hesitation points. A post-purchase upsell step was added for high-AOV product pairings."
+    body: "The cart was rebuilt as a fully custom Liquid + JS component with upsell logic tied to product tags and collections. Checkout was restructured with trust signals, and a post-purchase upsell step was added for high-AOV product pairings."
   - step: "04"
     title: "Performance Optimisation"
-    body: "Audited and optimised asset loading, deferred non-critical scripts, and cleaned up render-blocking resources. For a store serving 190+ countries with multi-currency and third-party scripts, getting to 2.3s load time required careful prioritisation across the entire stack."
+    body: "Audited and optimised asset loading, deferred non-critical scripts, and cleared render-blocking resources. For a store operating across 190+ countries with multi-currency and third-party integrations, every millisecond required deliberate prioritisation."
 stack: ["Shopify", "Liquid", "Custom JS", "Klaviyo", "Global-e", "GA4", "Microsoft Clarity"]
 testimonial:
   quote: "We had very specific expectations for how the store should look and function. Everything was implemented exactly as we envisioned — and the commercial results followed."
   author: "Asya Y."
-  role: "Client, Sleeper"
-metaTitle: "Sleeper — Shopify Case Study | /shvchk"
-metaDescription: "How we extended Sleeper's Shopify theme, redesigned the cart, and improved checkout conversion by 28% for a luxury fashion brand operating in 190+ countries."
+  role: "Client, The-Sleeper"
+metaTitle: "The-Sleeper — Shopify Case Study | /shvchk"
+metaDescription: "How we extended The-Sleeper's Shopify theme, rebuilt the cart with upsell logic, and improved average order value by 22% for a mid-luxury brand in 190+ countries."
 ---
 
-Sleeper is a brand with a point of view. Their pyjamas have been worn on red carpets and in Vogue editorials — the product has never been the problem.
+The-Sleeper is a mid-luxury brand built around life's celebrations — garments that blur the line between day and night, occasion and everyday, comfort and style. The brand operates globally, ships to 190+ countries, and has built a following around the idea that getting dressed should feel like something worth doing.
 
-The digital experience was lagging behind. Not broken, but not sharp enough for a brand operating at that level. The cart felt like a template. The checkout lost people at the last step. And the site didn't yet reflect where the CEO wanted to take the brand visually.
+The digital experience needed to match that ambition. The CEO had a clear vision for where the store should go visually — more editorial, more distinctly The-Sleeper. And commercially, the store wasn't yet taking full advantage of the purchase intent it was generating. Customers arriving ready to buy weren't being shown what else they might want.
 
-The brief was clear: make it look like Sleeper, make it convert better, and don't break anything in the process. A global store with multi-currency, cross-border logistics, and a full Klaviyo setup running underneath is not a simple place to work — every change touches something else.
+The brief covered both dimensions at once: realise the design vision, and build the commercial infrastructure to capitalise on it.
 
-We extended the theme where the existing code could be built on, and rebuilt from scratch where it couldn't. The cart redesign was the centrepiece: a fully custom component with contextual upsell logic that suggests the right products at the right moment, without feeling pushy. The checkout rebuild removed the friction that was costing them customers at the final step.
+We extended the theme where it could be built on, and rebuilt where it couldn't. The cart was the centrepiece — a fully custom component with contextual upsell logic that surfaces the right products at the right moment, without disrupting the experience. The post-purchase upsell step added a second opportunity after the first decision had already been made.
 
-The numbers improved. More importantly, the store now looks and feels like the brand it's supposed to represent.
+The result is a store that looks like The-Sleeper, moves fast, and earns more from every visit.
