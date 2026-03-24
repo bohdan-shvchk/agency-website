@@ -33,13 +33,9 @@ const allProjects = (await getCollection('projects')).sort(
         >
           <!-- Color accent strip -->
           <div
-            class="md:w-72 min-h-[160px] md:min-h-0 flex flex-col justify-between p-8 flex-shrink-0"
-            style={`background-color: ${project.data.color}15; border-right: 1px solid ${project.data.color}30;`}
+            class="md:w-72 min-h-[160px] md:min-h-0 flex flex-col justify-between p-8 flex-shrink-0 bg-white/5 border-r border-white/10"
           >
-            <div
-              class="w-8 h-8 rounded-full"
-              style={`background-color: ${project.data.color};`}
-            ></div>
+            <div class="w-8 h-8 rounded-full bg-white/20"></div>
             <div class="mt-auto">
               <p class="text-xs text-white/30 mb-1">{project.data.year}</p>
               <p class="text-xs text-white/40">{project.data.industry}</p>
