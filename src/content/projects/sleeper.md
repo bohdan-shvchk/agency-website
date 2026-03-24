@@ -1,5 +1,5 @@
 ---
-title: "Sleeper"
+title: "The-Sleeper"
 tagline: "Party pajamas, elevated to sell."
 description: "Custom Shopify development, checkout optimisation, and cart redesign for a luxury fashion brand selling in 190+ countries."
 industry: "E-commerce / Fashion"
