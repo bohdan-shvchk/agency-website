@@ -2,10 +2,10 @@
 title: "Webflow vs WordPress in 2026: A Developer's Honest Comparison"
 description: "We've built on both. Here's what actually matters when choosing between Webflow and WordPress for your marketing site."
 publishedAt: 2026-03-10
-author: "Your Name"
-authorRole: "Founder & Webflow Developer"
-authorBio: "5+ years building on Webflow. Previously at a digital agency. Obsessed with performance and clean architecture."
-authorLinkedIn: "https://linkedin.com"
+author: "Bohdan Shvchk"
+authorRole: "Founder & Shopify and Webflow Developer"
+authorBio: "5+ years building on Webflow, 2+ years on Shopify. Previously at a digital agency. Obsessed with performance and clean architecture."
+authorLinkedIn: "https://www.linkedin.com/in/bogdan-shevchuk-b3827414a/"
 category: "Platform"
 tags: ["webflow", "wordpress", "comparison"]
 readingTime: 7

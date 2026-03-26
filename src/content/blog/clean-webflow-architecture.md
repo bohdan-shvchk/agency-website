@@ -2,10 +2,10 @@
 title: "Clean Webflow Architecture: How to Build Sites That Don't Fall Apart"
 description: "Most Webflow sites look good on day one and become unmaintainable by month six. Here's how to avoid that."
 publishedAt: 2026-02-28
-author: "Your Name"
-authorRole: "Founder & Webflow Developer"
-authorBio: "5+ years building on Webflow. Previously at a digital agency. Obsessed with performance and clean architecture."
-authorLinkedIn: "https://linkedin.com"
+author: "Bohdan Shvchk"
+authorRole: "Founder & Shopify and Webflow Developer"
+authorBio: "5+ years building on Webflow, 2+ years on Shopify. Previously at a digital agency. Obsessed with performance and clean architecture."
+authorLinkedIn: "https://www.linkedin.com/in/bogdan-shevchuk-b3827414a/"
 category: "Development"
 tags: ["webflow", "architecture", "best-practices"]
 readingTime: 9

@@ -2,10 +2,10 @@
 title: "AI Agents in 2026: What Web Agencies Need to Know"
 description: "AI agents are no longer a future concept — they're being integrated into real client workflows right now. Here's what we've learned."
 publishedAt: 2026-02-14
-author: "Your Name"
-authorRole: "Founder & Webflow Developer"
-authorBio: "5+ years building on Webflow. Previously at a digital agency. Obsessed with performance and clean architecture."
-authorLinkedIn: "https://linkedin.com"
+author: "Bohdan Shvchk"
+authorRole: "Founder & Shopify and Webflow Developer"
+authorBio: "5+ years building on Webflow, 2+ years on Shopify. Previously at a digital agency. Obsessed with performance and clean architecture."
+authorLinkedIn: "https://www.linkedin.com/in/bogdan-shevchuk-b3827414a/"
 category: "AI"
 tags: ["ai", "automation", "webflow", "2026"]
 readingTime: 6

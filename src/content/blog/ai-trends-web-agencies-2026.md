@@ -2,10 +2,10 @@
 title: "AI in 2026: What Actually Matters for Web Agencies"
 description: "Agentic AI, shrinking models, and the end of AI experimentation. Here's what's actually shifting in 2026 — and what it means if you run a web agency."
 publishedAt: 2026-03-26
-author: "Your Name"
-authorRole: "Founder & Webflow Developer"
-authorBio: "5+ years building on Webflow. Previously at a digital agency. Obsessed with performance and clean architecture."
-authorLinkedIn: "https://linkedin.com"
+author: "Bohdan Shvchk"
+authorRole: "Founder & Shopify and Webflow Developer"
+authorBio: "5+ years building on Webflow, 2+ years on Shopify. Previously at a digital agency. Obsessed with performance and clean architecture."
+authorLinkedIn: "https://www.linkedin.com/in/bogdan-shevchuk-b3827414a/"
 category: "AI"
 tags: ["ai", "ai trends", "agentic ai", "web agency", "2026", "generative ai"]
 readingTime: 8
