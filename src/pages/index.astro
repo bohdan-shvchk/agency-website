@@ -1,5 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+const latestPosts = allPosts.slice(0, 3);
+
+const allProjects = (await getCollection('projects')).sort(
+  (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99)
+);
+
+const now = new Date();
+const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
 ---
 
 <Layout title="Your Agency — Webflow Development for Fast, Scalable Websites">
@@ -111,35 +124,22 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <a href="/projects/project-one" class="group border border-white/10 rounded-2xl overflow-hidden hover:border-white/30">
-          <div class="bg-white/5 aspect-video flex items-center justify-center">
-            <p class="text-white/20 text-sm">Project screenshot</p>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center justify-between">
-              <div>
-                <h3 class="font-semibold text-white">Client Name</h3>
-                <p class="text-sm text-white/40 mt-1">EdTech · Webflow Development</p>
-              </div>
-              <span class="text-white/30 group-hover:text-white text-lg">↗</span>
+        {allProjects.map(project => (
+          <a href={`/projects/${project.id}`} class="group border border-white/10 rounded-2xl overflow-hidden hover:border-white/30">
+            <div class="aspect-video flex items-center justify-center" style={`background-color: ${project.data.color ?? '#111'}`}>
+              <p class="text-white/20 text-sm font-semibold tracking-wide uppercase text-xs">{project.data.title}</p>
             </div>
-          </div>
-        </a>
-
-        <a href="/projects/project-two" class="group border border-white/10 rounded-2xl overflow-hidden hover:border-white/30">
-          <div class="bg-white/5 aspect-video flex items-center justify-center">
-            <p class="text-white/20 text-sm">Project screenshot</p>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center justify-between">
-              <div>
-                <h3 class="font-semibold text-white">Client Name</h3>
-                <p class="text-sm text-white/40 mt-1">SaaS · Integrations + Automation</p>
+            <div class="p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="font-semibold text-white">{project.data.title}</h3>
+                  <p class="text-sm text-white/40 mt-1">{project.data.industry} · {project.data.services?.[0]}</p>
+                </div>
+                <span class="text-white/30 group-hover:text-white text-lg">↗</span>
               </div>
-              <span class="text-white/30 group-hover:text-white text-lg">↗</span>
             </div>
-          </div>
-        </a>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -171,6 +171,43 @@ import Layout from '../layouts/Layout.astro';
           <h3 class="font-semibold text-white mb-2">Results with receipts</h3>
           <p class="text-sm text-white/50">Every case study includes real metrics: load time, conversion rate, traffic growth. No vague "great results".</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview -->
+  <section class="py-24 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-end justify-between mb-16">
+        <div>
+          <p class="text-xs font-semibold text-white/30 uppercase tracking-widest mb-3">From the blog</p>
+          <h2 class="text-4xl font-bold text-white">Latest writing.</h2>
+        </div>
+        <a href="/blog" class="text-sm text-white/50 hover:text-white hidden md:block">View all →</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {latestPosts.map(post => {
+          const isNew = new Date(post.data.publishedAt) >= oneWeekAgo;
+          return (
+            <a href={`/blog/${post.id}`} class="group border border-white/10 rounded-2xl p-7 hover:border-white/30 hover:bg-white/5 flex flex-col">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-xs border border-white/20 rounded-full px-3 py-1 text-white/50">{post.data.category}</span>
+                {isNew && (
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-white text-black tracking-wide">NEW</span>
+                )}
+              </div>
+              <h3 class="text-base font-semibold text-white leading-snug mb-3 flex-1">{post.data.title}</h3>
+              <div class="flex items-center justify-between mt-4">
+                <span class="text-xs text-white/30">
+                  {new Date(post.data.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  &nbsp;·&nbsp;{post.data.readingTime} min
+                </span>
+                <span class="text-white/30 group-hover:text-white text-base">↗</span>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>
