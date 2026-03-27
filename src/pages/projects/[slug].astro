@@ -40,7 +40,7 @@ const jsonLd = {
   <!-- Hero -->
   <div
     class="pt-32 pb-20 px-6 border-b border-white/10"
-    style={`background: linear-gradient(135deg, ${color}10 0%, transparent 60%);`}
+    style="background: linear-gradient(135deg, var(--surface-mid) 0%, transparent 60%);"
   >
     <div class="max-w-6xl mx-auto">
       <!-- Breadcrumbs -->
@@ -82,7 +82,7 @@ const jsonLd = {
           <div class="grid grid-cols-2 gap-4">
             {metrics.map(m => (
               <div class="border border-white/10 rounded-2xl p-6 bg-white/5">
-                <p class="text-3xl font-bold text-white mb-1" style={`color: ${color};`}>{m.value}</p>
+                <p class="text-3xl font-bold text-white mb-1">{m.value}</p>
                 <p class="text-sm text-white/50">{m.label}</p>
               </div>
             ))}
@@ -121,7 +121,7 @@ const jsonLd = {
                 <div class={`flex gap-6 pb-10 relative ${i < process.length - 1 ? 'border-l border-white/10 ml-4' : 'ml-4'}`}>
                   <div
                     class="w-8 h-8 rounded-full border-2 border-white/20 bg-[var(--bg)] flex items-center justify-center text-xs font-mono text-white/40 flex-shrink-0 -ml-4"
-                    style={`border-color: ${color}60; color: ${color};`}
+                    style="border-color: var(--border-mid); color: var(--fg-muted);"
                   >
                     {i + 1}
                   </div>
@@ -161,7 +161,7 @@ const jsonLd = {
         {testimonial && (
           <div
             class="rounded-2xl p-8 border"
-            style={`background: ${color}10; border-color: ${color}30;`}
+            style="background: var(--surface); border-color: var(--border-mid);"
           >
             <p class="text-xl text-white/80 leading-relaxed mb-6 italic">
               "{testimonial.quote}"
@@ -169,7 +169,7 @@ const jsonLd = {
             <div class="flex items-center gap-3">
               <div
                 class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white"
-                style={`background-color: ${color};`}
+                style="background-color: var(--surface-mid);"
               >
                 {testimonial.author[0]}
               </div>
