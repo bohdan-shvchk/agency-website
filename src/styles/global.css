@@ -13,8 +13,9 @@
   --surface:     rgba(0, 0, 0, 0.04);
   --surface-mid: rgba(0, 0, 0, 0.07);
   --header-bg:   rgba(248, 248, 246, 0.85);
-  --btn-bg:      #0a0a0a;
-  --btn-fg:      #ffffff;
+  --btn-bg:             #FF9000;
+  --btn-fg:             #0a0a0a;
+  --btn-outline-border: #FBC47B;
   --invert-bg:   #0a0a0a;
   --invert-fg:   #ffffff;
 }
@@ -29,8 +30,9 @@
   --surface:     rgba(255, 255, 255, 0.05);
   --surface-mid: rgba(255, 255, 255, 0.1);
   --header-bg:   rgba(10, 10, 10, 0.8);
-  --btn-bg:      #ffffff;
-  --btn-fg:      #000000;
+  --btn-bg:             #FF9000;
+  --btn-fg:             #ffffff;
+  --btn-outline-border: #FBC47B;
   --invert-bg:   #ffffff;
   --invert-fg:   #000000;
 }
@@ -133,6 +135,16 @@ body {
 [data-theme="dark"] .hover\:bg-white\/90:hover       { background-color: rgba(255,255,255,0.9) !important; }
 [data-theme="dark"] .hover\:border-white\/30:hover   { border-color: rgba(255,255,255,0.3) !important; }
 [data-theme="dark"] .hover\:border-white\/40:hover   { border-color: rgba(255,255,255,0.4) !important; }
+
+/* ─────────────────────────────────────────
+   Secondary outline button accent border
+   ───────────────────────────────────────── */
+.btn-outline {
+  border-color: var(--btn-outline-border) !important;
+}
+.btn-outline:hover {
+  border-color: var(--btn-outline-border) !important;
+}
 
 /* ─────────────────────────────────────────
    Inverted card (e.g. pricing highlight)
