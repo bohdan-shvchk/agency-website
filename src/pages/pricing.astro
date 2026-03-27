@@ -91,7 +91,7 @@ const retainer = [
             <ul class="space-y-2 flex-1 mb-8">
               {plan.features.map(f => (
                 <li class={`flex items-center gap-2 text-sm ${plan.highlight ? 'card-inverted-mid' : 'text-white/60'}`}>
-                  <span class={plan.highlight ? '' : 'text-white/50'}>✓</span> {f}
+                  <span class={plan.highlight ? '' : 'text-green-400'}>✓</span> {f}
                 </li>
               ))}
             </ul>
@@ -120,7 +120,7 @@ const retainer = [
             <ul class="space-y-2">
               {r.features.map(f => (
                 <li class="text-sm text-white/60 flex items-center gap-2">
-                  <span class="text-white/50">✓</span> {f}
+                  <span class="text-green-400">✓</span> {f}
                 </li>
               ))}
             </ul>
