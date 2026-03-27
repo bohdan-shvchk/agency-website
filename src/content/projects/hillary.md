@@ -7,6 +7,7 @@ services: ["Shopify Development", "Integrations & Setup", "Email Marketing"]
 year: "2024"
 url: "https://hillary.pl"
 color: "#2d4a3e"
+preview: "/projects/hillary.png"
 order: 3
 metrics:
   - value: "2"

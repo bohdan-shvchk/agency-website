@@ -126,8 +126,11 @@ const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {allProjects.map(project => (
           <a href={`/projects/${project.id}`} class="group border border-white/10 rounded-2xl overflow-hidden hover:border-white/30">
-            <div class="aspect-video flex items-center justify-center" style="background-color: var(--surface-mid)">
-              <p class="text-white/20 text-sm font-semibold tracking-wide uppercase text-xs">{project.data.title}</p>
+            <div class="aspect-video overflow-hidden" style="background-color: var(--surface-mid)">
+              {project.data.preview
+                ? <img src={project.data.preview} alt={project.data.title} class="w-full h-full object-cover object-top" />
+                : <div class="w-full h-full flex items-center justify-center"><p class="text-white/20 text-xs font-semibold tracking-wide uppercase">{project.data.title}</p></div>
+              }
             </div>
             <div class="p-6">
               <div class="flex items-center justify-between">

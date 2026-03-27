@@ -36,6 +36,7 @@ const projects = defineCollection({
     year: z.string(),
     url: z.string().optional(),
     color: z.string().default('#000000'),
+    preview: z.string().optional(),
     // Metrics shown as highlight numbers
     metrics: z.array(z.object({
       value: z.string(),

@@ -7,6 +7,7 @@ services: ["Shopify Development", "Business Setup", "Market Research", "Payments
 year: "2025–present"
 url: "https://lunara-light.com"
 color: "#1a0a2e"
+preview: "/projects/lunara-light.png"
 order: 2
 metrics:
   - value: "1"

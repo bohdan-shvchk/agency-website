@@ -31,13 +31,14 @@ const allProjects = (await getCollection('projects')).sort(
           href={`/projects/${project.id}`}
           class="group flex flex-col md:flex-row border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 hover:bg-white/5"
         >
-          <!-- Color accent strip -->
-          <div
-            class="md:w-72 min-h-[160px] md:min-h-0 flex flex-col justify-between p-8 flex-shrink-0 bg-white/5 border-r border-white/10"
-          >
-            <div class="w-8 h-8 rounded-full bg-white/20"></div>
-            <div class="mt-auto">
-              <p class="text-xs text-white/30 mb-1">{project.data.year}</p>
+          <!-- Preview / accent strip -->
+          <div class="md:w-72 min-h-[160px] md:min-h-0 flex-shrink-0 border-r border-white/10 overflow-hidden relative" style="background-color: var(--surface-mid)">
+            {project.data.preview
+              ? <img src={project.data.preview} alt={project.data.title} class="w-full h-full object-cover object-top absolute inset-0" />
+              : null
+            }
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <p class="text-xs text-white/50 mb-0.5">{project.data.year}</p>
               <p class="text-xs text-white/40">{project.data.industry}</p>
             </div>
           </div>

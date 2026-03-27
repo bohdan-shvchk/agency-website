@@ -7,6 +7,7 @@ services: ["Shopify Development", "CRO & Checkout", "Support & Maintenance"]
 year: "2025"
 url: "https://the-sleeper.com"
 color: "#0a0a0a"
+preview: "/projects/sleeper.png"
 order: 1
 metrics:
   - value: "+28%"
