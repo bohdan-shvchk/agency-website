@@ -99,7 +99,7 @@ body {
 /* Hover states */
 :root .hover\:text-white:hover         { color: var(--fg) !important; }
 :root .hover\:bg-white\/5:hover        { background-color: rgba(0,0,0,0.04) !important; }
-:root .hover\:bg-white\/90:hover       { background-color: rgba(10,10,10,0.85) !important; }
+:root .hover\:bg-white\/90:hover       { background-color: rgba(220,125,0,0.95) !important; }
 :root .hover\:border-white\/30:hover   { border-color: rgba(0,0,0,0.25) !important; }
 :root .hover\:border-white\/40:hover   { border-color: rgba(0,0,0,0.3) !important; }
 :root .group:hover .group-hover\:text-white { color: var(--fg) !important; }
@@ -117,10 +117,10 @@ body {
 [data-theme="dark"] .text-white\/40  { color: rgba(240,240,240,0.4) !important; }
 [data-theme="dark"] .text-white\/30  { color: rgba(240,240,240,0.3) !important; }
 [data-theme="dark"] .text-white\/20  { color: rgba(240,240,240,0.2) !important; }
-[data-theme="dark"] .text-black      { color: #000000 !important; }
+[data-theme="dark"] .text-black      { color: var(--btn-fg) !important; }
 
 [data-theme="dark"] .bg-\[\#0a0a0a\]\/80  { background-color: rgba(10,10,10,0.8) !important; }
-[data-theme="dark"] .bg-white             { background-color: #ffffff !important; }
+[data-theme="dark"] .bg-white             { background-color: var(--btn-bg) !important; }
 [data-theme="dark"] .bg-white\/5          { background-color: rgba(255,255,255,0.05) !important; }
 [data-theme="dark"] .bg-white\/10         { background-color: rgba(255,255,255,0.1) !important; }
 [data-theme="dark"] .bg-white\/20         { background-color: rgba(255,255,255,0.2) !important; }
@@ -132,7 +132,7 @@ body {
 
 [data-theme="dark"] .hover\:text-white:hover         { color: #ffffff !important; }
 [data-theme="dark"] .hover\:bg-white\/5:hover        { background-color: rgba(255,255,255,0.05) !important; }
-[data-theme="dark"] .hover\:bg-white\/90:hover       { background-color: rgba(255,255,255,0.9) !important; }
+[data-theme="dark"] .hover\:bg-white\/90:hover       { background-color: rgba(220,125,0,0.95) !important; }
 [data-theme="dark"] .hover\:border-white\/30:hover   { border-color: rgba(255,255,255,0.3) !important; }
 [data-theme="dark"] .hover\:border-white\/40:hover   { border-color: rgba(255,255,255,0.4) !important; }
 
