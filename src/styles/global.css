@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --color-pureorange: #FF9000;
+}
+
 /* ─────────────────────────────────────────
    Theme tokens — light is default
    ───────────────────────────────────────── */
@@ -48,6 +52,12 @@
 .t-text     { color: var(--fg); }
 .t-text-muted { color: var(--fg-muted); }
 .t-text-faint { color: var(--fg-faint); }
+/* Inverted badge — white bg / dark text in dark mode, dark bg / white text in light */
+.badge-invert {
+  background-color: var(--invert-bg);
+  color: var(--invert-fg);
+}
+
 .t-card {
   background-color: var(--surface);
   border: 1px solid var(--border);
