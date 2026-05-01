@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 import os
-import json
 import re
 import datetime
 import urllib.request
-import urllib.error
 import xml.etree.ElementTree as ET
+import anthropic
 
-ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
+ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"].strip()
 
 RSS_FEEDS = [
     "https://techcrunch.com/feed/",
@@ -58,22 +57,13 @@ def gather_news():
     return all_items[:20]
 
 def call_claude(prompt):
-    data = json.dumps({
-        "model": "claude-sonnet-4-6",
-        "max_tokens": 4096,
-        "messages": [{"role": "user", "content": prompt}]
-    }).encode()
-    req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages",
-        data=data,
-        headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        }
+    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+    message = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=4096,
+        messages=[{"role": "user", "content": prompt}]
     )
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return json.loads(r.read())["content"][0]["text"]
+    return message.content[0].text
 
 def slugify(text):
     text = text.lower()
