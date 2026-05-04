@@ -62,7 +62,16 @@ def generate_article(prompt):
         max_tokens=4096,
         temperature=0.7,
     )
-    return response.choices[0].message.content
+    content = response.choices[0].message.content.strip()
+    # Ensure frontmatter has opening and closing ---
+    if content.count("---") < 2:
+        lines = content.split("\n")
+        insert_at = next(
+            (i for i, l in enumerate(lines) if l.startswith("##")), len(lines)
+        )
+        lines.insert(insert_at, "---\n")
+        content = "\n".join(lines)
+    return content
 
 def slugify(text):
     text = text.lower()
