@@ -4,9 +4,9 @@ import re
 import datetime
 import urllib.request
 import xml.etree.ElementTree as ET
-import anthropic
+from groq import Groq
 
-ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"].strip()
+GROQ_API_KEY = os.environ["GROQ_API_KEY"].strip()
 
 RSS_FEEDS = [
     "https://techcrunch.com/feed/",
@@ -32,14 +32,12 @@ def parse_feed(xml_bytes):
         return []
     ns = {"atom": "http://www.w3.org/2005/Atom"}
     items = []
-    # RSS
     for item in root.findall(".//item")[:5]:
         title = item.findtext("title", "").strip()
         link = item.findtext("link", "").strip()
         desc = item.findtext("description", "").strip()
         if title:
             items.append(f"- {title}: {desc[:120]}... ({link})")
-    # Atom
     for entry in root.findall(".//atom:entry", ns)[:5]:
         title = entry.findtext("atom:title", namespaces=ns, default="").strip()
         link_el = entry.find("atom:link", ns)
@@ -56,14 +54,15 @@ def gather_news():
         all_items.extend(parse_feed(xml_bytes))
     return all_items[:20]
 
-def call_claude(prompt):
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
+def generate_article(prompt):
+    client = Groq(api_key=GROQ_API_KEY)
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[{"role": "user", "content": prompt}],
         max_tokens=4096,
-        messages=[{"role": "user", "content": prompt}]
+        temperature=0.7,
     )
-    return message.content[0].text
+    return response.choices[0].message.content
 
 def slugify(text):
     text = text.lower()
@@ -82,7 +81,7 @@ def main():
     news_block = "\n".join(news)
     today = datetime.date.today().isoformat()
 
-    print("Generating article with Claude...")
+    print("Generating article with Groq...")
     prompt = f"""You are an SEO content writer for a web agency blog run by Bohdan Shvchk, a Webflow and Shopify developer.
 
 Here are today's top AI and Tech headlines:
@@ -128,16 +127,14 @@ Rules:
 - Return ONLY the markdown content, nothing else
 """
 
-    article = call_claude(prompt)
+    article = generate_article(prompt)
 
-    # Extract title for slug
     title_match = re.search(r'^title:\s*"(.+?)"', article, re.MULTILINE)
     title = title_match.group(1) if title_match else "ai-tech-update"
     slug = slugify(title)
 
     output_path = f"src/content/blog/{slug}.md"
 
-    # Check if file already exists
     if os.path.exists(output_path):
         slug = f"{slug}-{today}"
         output_path = f"src/content/blog/{slug}.md"
