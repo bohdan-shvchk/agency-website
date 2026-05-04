@@ -6,7 +6,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 import anthropic
 
-ANTHROPIC_API_KEY = ''.join(c for c in os.environ["ANTHROPIC_API_KEY"] if ord(c) < 128).strip()
+ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"].strip()
 
 RSS_FEEDS = [
     "https://techcrunch.com/feed/",
