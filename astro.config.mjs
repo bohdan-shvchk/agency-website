@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://youragency.com',
+  site: 'https://agency-website-omega-ten.vercel.app',
   integrations: [sitemap(), mdx()],
   vite: {
     plugins: [tailwindcss()]
