@@ -9,10 +9,11 @@ from groq import Groq
 GROQ_API_KEY = os.environ["GROQ_API_KEY"].strip()
 
 RSS_FEEDS = [
-    "https://techcrunch.com/feed/",
-    "https://www.theverge.com/rss/index.xml",
-    "https://feeds.arstechnica.com/arstechnica/technology-lab",
-    "https://www.wired.com/feed/rss",
+    "https://www.shopify.com/blog.atom",
+    "https://webflow.com/blog/rss.xml",
+    "https://css-tricks.com/feed/",
+    "https://web.dev/feed.xml",
+    "https://www.smashingmagazine.com/feed/",
 ]
 
 def fetch_rss(url):
@@ -93,10 +94,12 @@ def main():
     print("Generating article with Groq...")
     prompt = f"""You are an SEO content writer for a web agency blog run by Bohdan Shvchk, a Webflow and Shopify developer.
 
-Here are today's top AI and Tech headlines:
+Here are today's headlines from Shopify, Webflow, and web-dev publications:
 {news_block}
 
-Pick the single most interesting and relevant topic for a web agency audience. Write a complete, publication-ready blog post in English.
+Audience: small-to-mid e-commerce founders and marketing leads evaluating Shopify/Webflow agencies. Pick a topic that helps them either (a) make a build/redesign decision, (b) improve store performance or conversion, or (c) evaluate trade-offs between platforms, tools, or approaches. Skip pure consumer-tech, AI gadget reviews, or industry politics.
+
+Write a complete, publication-ready blog post in English.
 
 Return ONLY a valid markdown file with this exact frontmatter schema followed by the article body:
 
