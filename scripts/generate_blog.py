@@ -148,10 +148,12 @@ def call_claude(client, attempt_label, **kwargs):
             print(f"{attempt_label} attempt {attempt} failed: {e}")
             if attempt >= 3:
                 if attempt < 6:
+                    next_delay = delays[attempt - 1]
+                    retry_msg = "Retrying in 30 seconds..." if next_delay < 60 else "Retrying in 1 hour..."
                     send_telegram(
                         f"Blog poster: {attempt_label} attempt {attempt}/6 failed.\n"
                         f"Error: {str(e)[:200]}\n"
-                        f"Retrying in 1 hour..."
+                        f"{retry_msg}"
                     )
                 else:
                     send_telegram(
