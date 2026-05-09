@@ -1,7 +1,7 @@
 ---
 title: "Streaming Giants Race to TikTok, AI Eliminates 1,100 Jobs at Cloudflare, and Intel's Stock Soars 490%"
 description: "Today's tech roundup: Prime Video adds Clips feed, Cloudflare cuts jobs due to AI, Intel's dramatic comeback, and critical infrastructure threats emerge."
-publishedAt: 2026-05-08
+publishedAt: 2026-05-09
 author: "Bohdan Shvchk"
 authorRole: "Founder & Shopify Developer"
 authorBio: "Shopify developer and web agency founder. Covering the tech and AI news that matters for modern businesses."
