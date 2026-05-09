@@ -259,7 +259,7 @@ Return ONLY: {{"style": "Style Name"}}"""
         return "News Roundup"
 
 
-def generate_article(client, news_items, style, yesterday_str, continuation_context):
+def generate_article(client, news_items, style, yesterday_str, today_str, continuation_context):
     news_text = "\n".join(
         f"- {item['title']}: {item['description'][:150]} ({item['link']})"
         for item in news_items[:15]
@@ -297,7 +297,7 @@ Return ONLY a valid markdown file with this exact frontmatter followed by the ar
 ---
 title: ""
 description: ""
-publishedAt: {yesterday_str}
+publishedAt: {today_str}
 author: "{AUTHOR['name']}"
 authorRole: "{AUTHOR['role']}"
 authorBio: "{AUTHOR['bio']}"
@@ -374,6 +374,7 @@ def main():
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     now_cest = datetime.datetime.now(CEST)
+    today_str = now_cest.date().isoformat()
     yesterday = now_cest.date() - datetime.timedelta(days=1)
     yesterday_str = yesterday.isoformat()
     start = datetime.datetime.combine(yesterday, datetime.time.min, tzinfo=CEST)
@@ -425,7 +426,7 @@ def main():
     print(f"Style: {style}")
 
     print("Generating article...")
-    resp = generate_article(client, selected_items, style, yesterday_str, continuation_context)
+    resp = generate_article(client, selected_items, style, yesterday_str, today_str, continuation_context)
     if not resp:
         return
 
