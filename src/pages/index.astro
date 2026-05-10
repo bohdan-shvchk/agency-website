@@ -13,6 +13,24 @@ const allProjects = (await getCollection('projects')).sort(
 
 const now = new Date();
 const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+// Blog карточек налаштування (розміри в px)
+const blogConfig = {
+  titleFontSize: 16, // в пікселях
+  descriptionFontSize: 14, // в пікселях
+  descriptionLines: 2, // 1, 2, 3, 4, 5
+};
+
+const getLineClampClass = (lines: number) => {
+  const clampMap: Record<number, string> = {
+    1: 'line-clamp-1',
+    2: 'line-clamp-2',
+    3: 'line-clamp-3',
+    4: 'line-clamp-4',
+    5: 'line-clamp-5',
+  };
+  return clampMap[lines] || 'line-clamp-2';
+};
 ---
 
 <Layout title="Your Agency — Webflow Development for Fast, Scalable Websites">
@@ -204,8 +222,13 @@ const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
                 )}
                 <span class="text-xs border border-white/20 rounded-full px-3 py-1 text-white/50">{post.data.category}</span>
               </div>
-              <h3 class="text-base font-semibold text-white leading-snug mb-3 flex-1">{post.data.title}</h3>
-              <div class="flex items-center justify-between mt-4">
+              <h3 class="font-semibold text-white leading-snug mb-3 flex-1" style={`font-size: ${blogConfig.titleFontSize}px`}>{post.data.title}</h3>
+              {post.data.description && (
+                <p class={`text-white/60 leading-relaxed mb-4 flex-1 ${getLineClampClass(blogConfig.descriptionLines)}`} style={`font-size: ${blogConfig.descriptionFontSize}px`}>
+                  {post.data.description}
+                </p>
+              )}
+              <div class="flex items-center justify-between mt-auto">
                 <span class="text-xs text-white/30">
                   {new Date(post.data.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                   &nbsp;·&nbsp;{post.data.readingTime} min
