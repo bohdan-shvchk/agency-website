@@ -38,5 +38,13 @@
     "style": "News Roundup",
     "forced": false,
     "topic_summary": "News Roundup: Former Tesla exec and Heron Power CEO Drew Baglino, Musk mulled handing OpenAI to his children, Altman, Anthropic warns investors against secondary platfo"
+  },
+  {
+    "date": "2026-05-13",
+    "title": "The Great AI Infrastructure Race: From Notion's Agent Hub to xAI's Turbine Controversy",
+    "slug": "the-great-ai-infrastructure-race-from-notions-agent-hub-to",
+    "style": "Trend Analysis",
+    "forced": false,
+    "topic_summary": "Trend Analysis: Notion just turned its workspace into a hub for AI, Musk’s xAI is running nearly 50 gas turbines unche, Anthropic’s Cat Wu says that, in the future, AI wi"
   }
 ]
